@@ -17,7 +17,7 @@
         <![endif]-->
 
 	<!-- HEADER AREA -->
-	<jsp:include page="header.jsp"></jsp:include>
+	<!--<jsp:include page="header.jsp"></jsp:include>-->
 	  <!-- SUPPORT AREA -->
 		<div class="support-area">
 			<div class="container">
