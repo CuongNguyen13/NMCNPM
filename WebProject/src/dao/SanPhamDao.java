@@ -9,7 +9,6 @@ import java.util.List;
 
 import model.DonViTinh;
 import model.LoaiHang;
-import model.MatHang;
 import model.SanPham;
 
 
@@ -59,48 +58,6 @@ public ArrayList<SanPham> getListProduct() {
 	}
 	return listSanPham;
 }
-
-
-//thong ke mat hang
-public ArrayList<MatHang> getListProductStatistical() {
-	ArrayList<MatHang> listSanPham = new ArrayList<MatHang>();
-	
-	try {
-		pstmt = conn.prepareStatement("SELECT * FROM MatHang");
-		rs = pstmt.executeQuery();
-		while (rs.next()) {
-			String  MaMh = rs.getString("MaMH");
-			String Ten = rs.getString("Ten");
-			String ngaySX = rs.getString("ngaySX");
-			double  giamua = rs.getDouble("giamua");
-			double  giaban = rs.getDouble("giaban");
-			int  soluongnhap = rs.getInt("Slnhap");
-			int  soluongban = rs.getInt("slban");
-			String ngaynhap = rs.getString("ngaynhap");
-			
-			MatHang sanpham = new MatHang(MaMh, Ten, giamua, giaban, soluongnhap, soluongban,ngaynhap,ngaySX\\);
-			listSanPham.add(sanpham);
-		}
-	} catch (SQLException e) {
-		e.printStackTrace();
-	} finally {
-		try {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (rs != null) {
-				rs.close();
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	return listSanPham;
-}
-
-
-
-
 @Override
 public SanPham getByKey(String key) {
 	SanPham sanpham =null;
